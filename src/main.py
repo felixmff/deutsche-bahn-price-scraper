@@ -1,4 +1,4 @@
-"""Apify Actor — passthrough to bahn.de web API (see openapi/bahn-web-api.openapi.json)."""
+"""Apify Actor — passthrough to bahn.de web API."""
 
 from __future__ import annotations
 

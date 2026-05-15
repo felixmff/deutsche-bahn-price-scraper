@@ -3,7 +3,7 @@
   "name": "deutsche-bahn-price-scraper",
   "title": "Deutsche Bahn Web API Scraper",
   "description": "Passthrough to bahn.de web API (station search + connection offers). Returns upstream JSON.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "buildTag": "latest",
   "dockerfile": "./Dockerfile",
   "dockerContextDir": "..",

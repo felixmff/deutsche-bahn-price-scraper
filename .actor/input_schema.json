@@ -1,6 +1,6 @@
 {
   "title": "bahn.de Web API",
-  "description": "Calls bahn.de web API endpoints (orte or fahrplan). Dataset rows mirror upstream JSON. See openapi/bahn-web-api.openapi.json.",
+  "description": "Calls bahn.de web API endpoints (orte or fahrplan). Dataset rows mirror upstream JSON.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {

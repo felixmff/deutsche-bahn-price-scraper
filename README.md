@@ -4,8 +4,6 @@ Standalone [Apify Actor](https://docs.apify.com) — thin wrapper around the uno
 
 ## API surface
 
-Documented in [`openapi/bahn-web-api.openapi.json`](openapi/bahn-web-api.openapi.json):
-
 | Endpoint | bahn.de path | Method |
 |----------|----------------|--------|
 | `orte` | `/web/api/reiseloesung/orte` | GET |
