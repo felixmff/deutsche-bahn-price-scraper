@@ -15,19 +15,21 @@
     "query": {
       "title": "Suchbegriff (orte)",
       "type": "string",
-      "description": "Required for endpoint=orte",
+      "description": "Station or place search term. Required when endpoint is orte.",
       "editor": "textfield",
       "prefill": "Berlin Hbf"
     },
     "stationType": {
       "title": "Ort-Typ (orte)",
       "type": "string",
+      "description": "Filter location type for station search (maps to bahn.de typ parameter).",
       "enum": ["ALL", "BAHNHOF", "ORT", "POI"],
       "default": "ALL"
     },
     "limit": {
       "title": "Limit (orte)",
       "type": "integer",
+      "description": "Maximum number of locations returned by station search.",
       "minimum": 1,
       "maximum": 50,
       "default": 5
@@ -35,31 +37,34 @@
     "origin": {
       "title": "Startbahnhof (fahrplan)",
       "type": "string",
+      "description": "Departure station name for connection search. Required when endpoint is fahrplan.",
       "editor": "textfield",
       "prefill": "Berlin Hbf"
     },
     "destination": {
       "title": "Zielbahnhof (fahrplan)",
       "type": "string",
+      "description": "Arrival station name for connection search. Required when endpoint is fahrplan.",
       "editor": "textfield",
       "prefill": "München Hbf"
     },
     "departureDateTime": {
       "title": "Abfahrt (ISO)",
       "type": "string",
-      "description": "e.g. 2026-06-01T08:00:00 — or use travelDate + departureHour",
+      "description": "Departure date and time in ISO format, e.g. 2026-06-01T08:00:00. Alternative to travelDate plus departureHour.",
       "editor": "textfield",
       "prefill": "2026-06-01T08:00:00"
     },
     "travelDate": {
       "title": "Reisedatum (fahrplan)",
       "type": "string",
-      "description": "YYYY-MM-DD if departureDateTime omitted",
+      "description": "Travel date as YYYY-MM-DD. Used when departureDateTime is not set.",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "departureHour": {
       "title": "Abfahrt Stunde",
       "type": "integer",
+      "description": "Departure hour (0–23) when using travelDate instead of departureDateTime.",
       "minimum": 0,
       "maximum": 23,
       "default": 8
@@ -67,6 +72,7 @@
     "departureMinute": {
       "title": "Abfahrt Minute",
       "type": "integer",
+      "description": "Departure minute (0–59) when using travelDate instead of departureDateTime.",
       "minimum": 0,
       "maximum": 59,
       "default": 0
@@ -74,34 +80,40 @@
     "travelClass": {
       "title": "Reiseklasse",
       "type": "integer",
+      "description": "Travel class: 1 = first class, 2 = second class.",
       "enum": [1, 2],
       "default": 2
     },
     "passengerAge": {
       "title": "Passagieralter",
       "type": "integer",
+      "description": "Passenger age in years (affects fare calculation on bahn.de).",
       "minimum": 0,
       "maximum": 120
     },
     "bahnCard": {
       "title": "BahnCard",
       "type": "string",
+      "description": "BahnCard discount level, or none if no card.",
       "enum": ["none", "25", "50", "100"],
       "default": "none"
     },
     "hasDeutschlandTicket": {
       "title": "Deutschland-Ticket",
       "type": "boolean",
+      "description": "Whether the passenger has a Deutschland-Ticket.",
       "default": false
     },
     "deutschlandTicketOnly": {
       "title": "Nur Deutschland-Ticket-Verbindungen",
       "type": "boolean",
+      "description": "Return only connections valid with the Deutschland-Ticket.",
       "default": false
     },
     "maxTransfers": {
       "title": "Max. Umstiege",
       "type": "integer",
+      "description": "Maximum number of transfers allowed in connection search.",
       "minimum": 0,
       "maximum": 10,
       "default": 5
@@ -109,6 +121,7 @@
     "proxyConfiguration": {
       "title": "Proxy",
       "type": "object",
+      "description": "Apify Proxy settings. Residential DE proxies are recommended for bahn.de.",
       "editor": "proxy",
       "prefill": {
         "useApifyProxy": true,
