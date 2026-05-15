@@ -8,6 +8,7 @@
       "title": "Endpoint",
       "type": "string",
       "description": "Which bahn.de API to call",
+      "editor": "select",
       "enum": ["orte", "fahrplan"],
       "enumTitles": ["Station search (GET /reiseloesung/orte)", "Connections (POST /angebote/fahrplan)"],
       "default": "fahrplan"
@@ -23,6 +24,7 @@
       "title": "Ort-Typ (orte)",
       "type": "string",
       "description": "Filter location type for station search (maps to bahn.de typ parameter).",
+      "editor": "select",
       "enum": ["ALL", "BAHNHOF", "ORT", "POI"],
       "default": "ALL"
     },
@@ -30,6 +32,7 @@
       "title": "Limit (orte)",
       "type": "integer",
       "description": "Maximum number of locations returned by station search.",
+      "editor": "number",
       "minimum": 1,
       "maximum": 50,
       "default": 5
@@ -59,12 +62,15 @@
       "title": "Reisedatum (fahrplan)",
       "type": "string",
       "description": "Travel date as YYYY-MM-DD. Used when departureDateTime is not set.",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      "editor": "datepicker",
+      "dateType": "absolute",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$"
     },
     "departureHour": {
       "title": "Abfahrt Stunde",
       "type": "integer",
       "description": "Departure hour (0–23) when using travelDate instead of departureDateTime.",
+      "editor": "number",
       "minimum": 0,
       "maximum": 23,
       "default": 8
@@ -73,6 +79,7 @@
       "title": "Abfahrt Minute",
       "type": "integer",
       "description": "Departure minute (0–59) when using travelDate instead of departureDateTime.",
+      "editor": "number",
       "minimum": 0,
       "maximum": 59,
       "default": 0
@@ -81,13 +88,16 @@
       "title": "Reiseklasse",
       "type": "integer",
       "description": "Travel class: 1 = first class, 2 = second class.",
-      "enum": [1, 2],
+      "editor": "number",
+      "minimum": 1,
+      "maximum": 2,
       "default": 2
     },
     "passengerAge": {
       "title": "Passagieralter",
       "type": "integer",
       "description": "Passenger age in years (affects fare calculation on bahn.de).",
+      "editor": "number",
       "minimum": 0,
       "maximum": 120
     },
@@ -95,25 +105,30 @@
       "title": "BahnCard",
       "type": "string",
       "description": "BahnCard discount level, or none if no card.",
+      "editor": "select",
       "enum": ["none", "25", "50", "100"],
+      "enumTitles": ["Keine", "BahnCard 25", "BahnCard 50", "BahnCard 100"],
       "default": "none"
     },
     "hasDeutschlandTicket": {
       "title": "Deutschland-Ticket",
       "type": "boolean",
       "description": "Whether the passenger has a Deutschland-Ticket.",
+      "editor": "checkbox",
       "default": false
     },
     "deutschlandTicketOnly": {
       "title": "Nur Deutschland-Ticket-Verbindungen",
       "type": "boolean",
       "description": "Return only connections valid with the Deutschland-Ticket.",
+      "editor": "checkbox",
       "default": false
     },
     "maxTransfers": {
       "title": "Max. Umstiege",
       "type": "integer",
       "description": "Maximum number of transfers allowed in connection search.",
+      "editor": "number",
       "minimum": 0,
       "maximum": 10,
       "default": 5
