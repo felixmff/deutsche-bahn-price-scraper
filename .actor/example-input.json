@@ -1,0 +1,12 @@
+{
+  "endpoint": "fahrplan",
+  "origin": "Berlin Hbf",
+  "destination": "München Hbf",
+  "departureDateTime": "2026-06-01T08:00:00",
+  "travelClass": 2,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": ["RESIDENTIAL"],
+    "apifyProxyCountry": "DE"
+  }
+}

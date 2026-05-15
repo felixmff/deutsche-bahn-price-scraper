@@ -1,0 +1,5 @@
+.apify/
+storage/
+__pycache__/
+.venv/
+uv.lock
